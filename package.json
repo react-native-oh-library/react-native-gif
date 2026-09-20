@@ -1,39 +1,83 @@
 {
-  "name": "react-native-gif",
-  "version": "1.0.2",
+  "name": "@oh-rn/react-native-gif",
+  "displayName": "react-native-gif",
+  "version": "1.0.3",
   "description": "FLAnimatedImage for React Native",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && tsc --declaration"
-  },
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/module/index.js",
+  "react-native": "./dist/module/index.js",
+  "types": "./dist/typescript/index.d.ts",
+  "license": "MIT",
+  "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seavan/react-native-gif.git"
+    "url": "git+https://gitcode.com/jojobiid/react-native-gif.git"
   },
   "keywords": [
     "react-native",
-    "flanimatedimage",
-    "animated",
-    "image",
-    "gif"
+    "harmony",
+    "harmonyos",
+    "ohos",
+    "openharmony",
+    "rnoh"
   ],
-  "author": "Samvel Avanesov (seavan@gmail.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/seavan/react-native-gif"
+  "homepage": "https://gitcode.com/jojobiid/react-native-gif",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/seavan/react-native-gif",
+  "files": [
+    "dist/",
+    "src/",
+    "harmony/",
+    "README.md",
+    "LICENSE",
+    "COMMITTERS.md"
+  ],
+  "scripts": {
+    "prepare": "tsc --noEmit && bob build",
+    "codegen-lib": "react-native codegen-harmony --cpp-output-path ./harmony/gif/src/main/cpp/generated --ets-output-path ./harmony/gif/src/main/ets/generated"
+  },
   "peerDependencies": {
-    "react-native": "*"
+    "react-native": ">=0.72"
   },
   "devDependencies": {
-    "@types/node": "^13.7.5",
-    "@types/react": "^16.9.23",
-    "@types/react-native": "^0.61.17",
-    "react": "^16.12.0",
-    "react-native": "^0.61.5",
-    "tslib": "^1.11.0",
-    "typescript": "^3.8.2"
+    "typescript": "5.0.4",
+    "@react-native/typescript-config": "0.79.5",
+    "react": "18.2.0",
+    "@types/react": "18.2.79",
+    "react-native": "0.72.5",
+    "jest": "^29.6.3",
+    "react-native-builder-bob": "^0.18.0",
+    "@react-native-oh/react-native-harmony-cli": "^0.77.50",
+    "metro": "^0.81.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "harmony": {
+    "alias": "react-native-gif",
+    "autolinking": {
+      "cmakeLibraryTargetName": "gif",
+      "ohPackageName": "@oh-rn/react-native-gif",
+      "etsPackageClassName": "GifPackage",
+      "cppPackageClassName": "GifPackage"
+    },
+    "codegenConfig": [
+      {
+        "version": 1,
+        "specPaths": [
+          "./src/specs/v1"
+        ]
+      }
+    ]
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "dist",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   }
 }

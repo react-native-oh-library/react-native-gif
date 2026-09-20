@@ -1,0 +1,14 @@
+{
+  "license": "MIT",
+  "devDependencies": {
+
+  },
+  "author": "",
+  "name": "@oh-rn/react-native-gif",
+  "description": "React Native FLAnimatedImage (GIF) component for HarmonyOS",
+  "main": "index.ets",
+  "version": "1.0.3",
+  "dependencies": {
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony_release.har"
+  }
+}
